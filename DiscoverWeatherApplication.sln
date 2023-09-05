@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34004.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscoverWeatherApplication", "DiscoverWeatherApplication\DiscoverWeatherApplication.csproj", "{A5EA511B-1256-4887-98EE-8839D121EEC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoveryWeatherApplication", "DiscoverWeatherApplication\DiscoveryWeatherApplication.csproj", "{A5EA511B-1256-4887-98EE-8839D121EEC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discovery.Weather.BusinessLogic", "Discovery.Weather.BusinessLogic\Discovery.Weather.BusinessLogic.csproj", "{D9D2229A-5C32-499A-8178-EC7044CEE5DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discovery.Weather.DataTransferObjects", "Discovery.Weather.DataTransferObjects\Discovery.Weather.DataTransferObjects.csproj", "{602EA5F1-D758-47BA-BB48-DABBC5958923}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +21,14 @@ Global
 		{A5EA511B-1256-4887-98EE-8839D121EEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5EA511B-1256-4887-98EE-8839D121EEC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A5EA511B-1256-4887-98EE-8839D121EEC5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D9D2229A-5C32-499A-8178-EC7044CEE5DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D2229A-5C32-499A-8178-EC7044CEE5DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D2229A-5C32-499A-8178-EC7044CEE5DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D2229A-5C32-499A-8178-EC7044CEE5DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602EA5F1-D758-47BA-BB48-DABBC5958923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602EA5F1-D758-47BA-BB48-DABBC5958923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602EA5F1-D758-47BA-BB48-DABBC5958923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602EA5F1-D758-47BA-BB48-DABBC5958923}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

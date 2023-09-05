@@ -56,9 +56,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\background.jpg" />
+	  <None Remove="Resources\Images\cloudiness.png" />
+	  <None Remove="Resources\Images\humidity.png" />
+	  <None Remove="Resources\Images\pressure.png" />
+	  <None Remove="Resources\Images\weather.png" />
+	  <None Remove="Resources\Images\wind.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0-preview.7.23364.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Discovery.Weather.BusinessLogic\Discovery.Weather.BusinessLogic.csproj" />
+	  <ProjectReference Include="..\Discovery.Weather.DataTransferObjects\Discovery.Weather.DataTransferObjects.csproj" />
 	</ItemGroup>
 
 	<!-- Build Properties must be defined within these property groups to ensure successful publishing
