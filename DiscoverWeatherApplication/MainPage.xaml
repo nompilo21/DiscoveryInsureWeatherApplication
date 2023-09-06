@@ -8,6 +8,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            
             <!-- Define styles and converters here -->
             <Style x:Key="labelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="Small" />
@@ -22,6 +23,8 @@
             <local:LongToDateTimeConverter x:Key="longToDateTimeConverter" />
             <local:FahrenheitToCelsiusConverter x:Key="fahrenheitToCelsiusConverter" />
             <local:DateToStringConverter x:Key="dateToStringConverter" />
+            <local:TemperatureToImageConverter x:Key="temperatureToImageConverter" />
+            
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -35,19 +38,23 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
             <Image
-            Aspect="AspectFill"
-            HeightRequest="200"
-            Source="background.jpg"
-            VerticalOptions="StartAndExpand" />
+                Aspect="AspectFill"
+                HeightRequest="30"
+                Source="discovery.png"
+                VerticalOptions="StartAndExpand" />
+            <Image
+                Aspect="AspectFill"
+                HeightRequest="200"
+                Source="background.jpg"
+                VerticalOptions="StartAndExpand" />
 
             <StackLayout
-            Margin="10"
-            HorizontalOptions="Start"
-            Orientation="Vertical"
-            Spacing="10"
-            VerticalOptions="Start">
+                Margin="10"
+                HorizontalOptions="Start"
+                Orientation="Vertical"
+                Spacing="10"
+                VerticalOptions="Start">
                 <StackLayout Orientation="Horizontal">
                     <Label
                     FontSize="14"
@@ -63,38 +70,39 @@
             </StackLayout>
 
             <StackLayout
-            Margin="0,10"
-            HorizontalOptions="Center"
-            Orientation="Vertical"
-            VerticalOptions="Center">
+                Margin="0,10"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                VerticalOptions="Center">
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                     <Image
-                    HeightRequest="50"
-                    Source="weather.png"
-                    VerticalOptions="Center"
-                    WidthRequest="50" />
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        Source="{Binding Main.Temperature, Converter={StaticResource temperatureToImageConverter}}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
                     <Label
-                    FontAttributes="Bold"
-                    FontSize="40"
-                    Text="{Binding Main.Temperature, Converter={StaticResource fahrenheitToCelsiusConverter}}"
-                    TextColor="White"
-                    VerticalOptions="Center" />
+                        FontAttributes="Bold"
+                        FontSize="40"
+                        Text="{Binding Main.Temperature, Converter={StaticResource fahrenheitToCelsiusConverter}}"
+                        TextColor="White"
+                        VerticalOptions="Center" />
                     <Label
-                    FontSize="24"
-                    Text="°C"
-                    TextColor="White"
-                    VerticalOptions="Center" />
+                        FontSize="24"
+                        Text="°C"
+                        TextColor="White"
+                        VerticalOptions="Center" />
                 </StackLayout>
                 <Label
-                FontSize="14"
-                HorizontalOptions="Center"
-                Text="{Binding Weather[0].Description}"
-                TextColor="White" />
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="{Binding Weather[0].Description}"
+                    TextColor="White" />
                 <Label
-                FontSize="12"
-                HorizontalOptions="Center"
-                Text="{Binding Dt, Converter={StaticResource longToDateTimeConverter}}"
-                TextColor="White" />
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    Text="{Binding Dt, Converter={StaticResource longToDateTimeConverter}}"
+                    TextColor="White" />
                 <Label
                      FontAttributes="Bold"
                      FontSize="14"
@@ -104,18 +112,18 @@
             </StackLayout>
 
             <Frame
-            Grid.Row="1"
-            Margin="10,-10,10,0"
-            Padding="0"
-            CornerRadius="10"
-            HasShadow="True"
-            HeightRequest="120"
-            VerticalOptions="Start">
+                Grid.Row="1"
+                Margin="10,-10,10,0"
+                Padding="0"
+                CornerRadius="10"
+                HasShadow="True"
+                HeightRequest="120"
+                VerticalOptions="Start">
 
                 <Grid
-                Margin="0,25,0,0"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="CenterAndExpand">
+                    Margin="0,25,0,0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -123,11 +131,10 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Adjusted styling for better desktop appearance -->
                     <StackLayout
-                    HorizontalOptions="CenterAndExpand"
-                    Orientation="Vertical"
-                    Spacing="5">
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Vertical"
+                        Spacing="5">
                         <Image Source="humidity.png" HeightRequest="30" WidthRequest="30" />
                         <StackLayout HorizontalOptions="CenterAndExpand" Spacing="5">
                             <Label
@@ -144,65 +151,65 @@
                         </StackLayout>
                     </StackLayout>
                     <StackLayout
-             Grid.Column="1"
-             HorizontalOptions="CenterAndExpand"
-             Orientation="Vertical"
-             Spacing="10">
+                         Grid.Column="1"
+                         HorizontalOptions="CenterAndExpand"
+                         Orientation="Vertical"
+                         Spacing="10">  
                         <Image Source="wind.png" HeightRequest="30" WidthRequest="30"/>
                         <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                             <Label
-                     FontAttributes="Bold"
-                     FontSize="12"
-                     HorizontalOptions="Center"
-                     Text="{Binding Wind.Speed}"
-                     TextColor="Black" />
+                                 FontAttributes="Bold"
+                                 FontSize="12"
+                                 HorizontalOptions="Center"
+                                 Text="{Binding Wind.Speed}"
+                                 TextColor="Black" />
                             <Label
-                     FontSize="11"
-                     HorizontalOptions="Center"
-                     Text="Wind"
-                     TextColor="#7D7D7D" />
+                                 FontSize="11"
+                                 HorizontalOptions="Center"
+                                 Text="Wind"
+                                 TextColor="#7D7D7D" /> 
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout
-             Grid.Column="2"
-             HorizontalOptions="CenterAndExpand"
-             Orientation="Vertical"
-             Spacing="10">
+                         Grid.Column="2"
+                         HorizontalOptions="CenterAndExpand"
+                         Orientation="Vertical"
+                         Spacing="10">  
                         <Image Source="pressure.png" HeightRequest="30" WidthRequest="30"/>
                         <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                             <Label
-                     FontAttributes="Bold"
-                     FontSize="12"
-                     HorizontalOptions="Center"
-                     Text="{Binding Main.Pressure}"
-                     TextColor="Black" />
+                                 FontAttributes="Bold"
+                                 FontSize="12"
+                                 HorizontalOptions="Center"
+                                 Text="{Binding Main.Pressure}"
+                                 TextColor="Black" />
                             <Label
-                     FontSize="11"
-                     HorizontalOptions="Center"
-                     Text="Pressure"
-                     TextColor="#7D7D7D" />
+                                 FontSize="11"
+                                 HorizontalOptions="Center"
+                                 Text="Pressure"
+                                 TextColor="#7D7D7D" />
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout
-             Grid.Column="3"
-             HorizontalOptions="CenterAndExpand"
-             Orientation="Vertical"
-             Spacing="10">
+                         Grid.Column="3"
+                         HorizontalOptions="CenterAndExpand"
+                         Orientation="Vertical"
+                         Spacing="10">
                         <Image Source="cloudiness.png" HeightRequest="30" WidthRequest="30"/>
                         <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                             <Label
-                     FontAttributes="Bold"
-                     FontSize="14"
-                     HorizontalOptions="Center"
-                     Text="{Binding Clouds.All}"
-                     TextColor="Black" />
+                                 FontAttributes="Bold"
+                                 FontSize="14"
+                                 HorizontalOptions="Center"
+                                 Text="{Binding Clouds.All}"
+                                 TextColor="Black" />
                             <Label
-                     FontSize="11"
-                     HorizontalOptions="Center"
-                     Text="Cloudiness"
-                     TextColor="#7D7D7D" />
+                                 FontSize="11"
+                                 HorizontalOptions="Center"
+                                 Text="Cloudiness"
+                                 TextColor="#7D7D7D" />
                         </StackLayout>
                     </StackLayout>
 
@@ -227,14 +234,19 @@
                                 HorizontalOptions="CenterAndExpand"
                                 Orientation="Horizontal"
                                 Spacing="10">
-                                    <Image Source="weather.png" HeightRequest="30" WidthRequest="30"/>
+                                    <Image
+                                        HeightRequest="30"
+                                        WidthRequest="30"
+                                        Source="{Binding Main.Temperature, Converter={StaticResource temperatureToImageConverter}}"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" />
                                     <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="7">
                                         <Label
-                                        FontAttributes="Bold"
-                                        FontSize="14"
-                                        HorizontalOptions="Center"
-                                        Text="{Binding Dt, Converter={StaticResource dateToStringConverter}}"
-                                        TextColor="Black" />
+                                            FontAttributes="Bold"
+                                            FontSize="14"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding Dt, Converter={StaticResource dateToStringConverter}}"
+                                            TextColor="Black" />
                                         <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                                             <Label
                                                 FontAttributes="Bold"
@@ -255,32 +267,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-
-
-
-            <!--<StackLayout
-            Grid.Row="3"
-            Margin="10,20,10,0"
-            Orientation="Horizontal">
-            <Entry
-                x:Name="_cityEntry"
-                Margin="5,0"
-                BackgroundColor="#7c58c9"
-                CharacterSpacing="5"
-                HorizontalTextAlignment="Center"
-                Text="Karachi"
-                TextColor="White"
-                VerticalOptions="Center"
-                WidthRequest="200" />
-            <Button
-                BackgroundColor="#7c58c9"
-                BorderColor="White"
-                BorderWidth="1"
-                Clicked="OnGetWeatherButtonClicked"
-                Text="Get Weather"
-                TextColor="White" />
-        </StackLayout>-->
 
         </Grid>
     </ScrollView>

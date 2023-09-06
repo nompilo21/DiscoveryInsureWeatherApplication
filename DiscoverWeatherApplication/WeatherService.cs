@@ -7,21 +7,20 @@ using Newtonsoft.Json;
 
 namespace DiscoverWeatherApplication
 {
+    //This is the weather service where the  HTTP client for making requests to the weather API.
     public class WeatherService
     {
-        // HTTP client for making requests to the weather API
-        HttpClient _client; 
+        protected HttpClient _client;
 
         public WeatherService()
         {
-            // Initialize the HTTP client
             _client = new HttpClient(); 
         }
 
         // Method for retrieving weather data asynchronously
         public async Task<WeatherData> GetWeatherData(string query)
         {
-            // Initialize the variable to store weather data
+
             WeatherData weatherData = null; 
 
             try
@@ -32,7 +31,7 @@ namespace DiscoverWeatherApplication
                 // Check if the HTTP response indicates success (status code 200)
                 if (response.IsSuccessStatusCode)
                 {
-                    // Read the response content as a string
+          
                     var content = await response.Content.ReadAsStringAsync();
 
                     // Deserialize the JSON response into a WeatherData object
@@ -43,10 +42,9 @@ namespace DiscoverWeatherApplication
             {
                 // Handle exceptions that may occur during the request or deserialization
                 Debug.WriteLine(ex.Message);
-                throw; // Rethrow the exception to be handled at a higher level
+                throw; 
             }
 
-            // Return the retrieved weather data or null if there was an error
             return weatherData;
         }
 
@@ -54,7 +52,7 @@ namespace DiscoverWeatherApplication
         // Method for retrieving weather forecast data asynchronously
         public async Task<WeatherForecastData> GetWeatherForecastData(string query)
         {
-            // Initialize the variable to store weather forecast data
+          
             WeatherForecastData weatherForecastData = null;
 
             try
@@ -65,7 +63,7 @@ namespace DiscoverWeatherApplication
                 // Check if the HTTP response indicates success (status code 200)
                 if (response.IsSuccessStatusCode)
                 {
-                    // Read the response content as a string
+                   
                     var content = await response.Content.ReadAsStringAsync();
 
                     // Deserialize the JSON response into a WeatherData object
@@ -76,11 +74,17 @@ namespace DiscoverWeatherApplication
             {
                 // Handle exceptions that may occur during the request or deserialization
                 Debug.WriteLine(ex.Message);
-                throw; // Rethrow the exception to be handled at a higher level
+                throw;
             }
 
-            // Return the retrieved weather data or null if there was an error
             return weatherForecastData;
         }
+
+        public void SetHttpClient(HttpClient httpClient)
+        {
+            _client = httpClient;
+        }
     }
+
+
 }

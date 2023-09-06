@@ -5,18 +5,17 @@ namespace Discovery.Weather.BusinessLogic
 {
     public class FahrenheitToCelsiusConverter : IValueConverter
     {
+        //description: Takes in temperature in Fahrenheit and converts to degrees celcius round to 1 decimal place
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is double fahrenheit)
             {
-                // Convert Fahrenheit to Celsius
+                
                 double celsius = (fahrenheit - 32) * 5 / 9;
 
-                // Round the result to two decimal places
                 return Math.Round(celsius, 1);
             }
 
-            // If the input is not a valid double, return null
             return null;
         }
 

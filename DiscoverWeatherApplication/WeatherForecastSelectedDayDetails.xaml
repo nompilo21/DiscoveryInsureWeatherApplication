@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DiscoverWeatherApplication.WeatherBottomSheet"
+             x:Class="DiscoverWeatherApplication.WeatherForecastSelectedDayDetails"
              xmlns:local="clr-namespace:Discovery.Weather.BusinessLogic;assembly=Discovery.Weather.BusinessLogic"
              Padding="16,20" Background="ghostwhite">
 
@@ -21,6 +21,8 @@
             <local:LongToDateTimeConverter x:Key="longToDateTimeConverter" />
             <local:FahrenheitToCelsiusConverter x:Key="fahrenheitToCelsiusConverter" />
             <local:DateToStringConverter x:Key="dateToStringConverter" />
+            <local:TemperatureToImageConverter x:Key="temperatureToImageConverter" />
+            
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -48,10 +50,11 @@
             >
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                 <Image
-             HeightRequest="50"
-             Source="weather.png"
-             VerticalOptions="Center"
-             WidthRequest="50" />
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    Source="{Binding Main.Temperature, Converter={StaticResource temperatureToImageConverter}}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
                 <Label
              FontAttributes="Bold"
              FontSize="40"
@@ -75,6 +78,12 @@
          Text="{Binding Dt, Converter={StaticResource longToDateTimeConverter}}"
          TextColor="White" />
         </StackLayout>
+        <Label
+             FontAttributes="Bold"
+             FontSize="14"
+             HorizontalOptions="Center"
+             Text="{Binding Dt, Converter={StaticResource dateToStringConverter}}"
+             TextColor="GhostWhite" />
 
         <Frame
      Grid.Row="1"
@@ -159,23 +168,23 @@
                 </StackLayout>
 
                 <StackLayout
-      Grid.Column="3"
-      HorizontalOptions="CenterAndExpand"
-      Orientation="Vertical"
-      Spacing="10">
+                      Grid.Column="3"
+                      HorizontalOptions="CenterAndExpand"
+                      Orientation="Vertical"
+                      Spacing="10">
                     <Image Source="cloudiness.png" HeightRequest="30" WidthRequest="30"/>
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                         <Label
-              FontAttributes="Bold"
-              FontSize="14"
-              HorizontalOptions="Center"
-              Text="{Binding Clouds.All}"
-              TextColor="Black" />
+                          FontAttributes="Bold"
+                          FontSize="14"
+                          HorizontalOptions="Center"
+                          Text="{Binding Clouds.All}"
+                          TextColor="Black" />
                         <Label
-              FontSize="11"
-              HorizontalOptions="Center"
-              Text="Cloudiness"
-              TextColor="#7D7D7D" />
+                          FontSize="11"
+                          HorizontalOptions="Center"
+                          Text="Cloudiness"
+                          TextColor="#7D7D7D" />        
                     </StackLayout>
                 </StackLayout>
 

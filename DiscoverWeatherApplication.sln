@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discovery.Weather.BusinessL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discovery.Weather.DataTransferObjects", "Discovery.Weather.DataTransferObjects\Discovery.Weather.DataTransferObjects.csproj", "{602EA5F1-D758-47BA-BB48-DABBC5958923}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoveryWeatherApp.xUnitTest", "DiscoveryWeatherApp.xUnitTest\DiscoveryWeatherApp.xUnitTest.csproj", "{5C97E3C3-B12B-44FE-A360-800F8EA9DB8A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{602EA5F1-D758-47BA-BB48-DABBC5958923} = {602EA5F1-D758-47BA-BB48-DABBC5958923}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +34,10 @@ Global
 		{602EA5F1-D758-47BA-BB48-DABBC5958923}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{602EA5F1-D758-47BA-BB48-DABBC5958923}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{602EA5F1-D758-47BA-BB48-DABBC5958923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C97E3C3-B12B-44FE-A360-800F8EA9DB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C97E3C3-B12B-44FE-A360-800F8EA9DB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C97E3C3-B12B-44FE-A360-800F8EA9DB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C97E3C3-B12B-44FE-A360-800F8EA9DB8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

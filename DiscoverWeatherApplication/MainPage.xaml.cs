@@ -1,12 +1,16 @@
 ﻿using Discovery.Weather.BusinessLogic;
 using Discovery.Weather.DataTransferObjects;
 using Microsoft.Maui.Controls;
+using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.Intrinsics.X86;
 using System.Threading.Channels;
 
 namespace DiscoverWeatherApplication
 {
+    //description: This is the Apps main page along with
+    //all requests and method calls for binding data to the view model
+    // A new instance of WeatherService is created to access request data.
     public partial class MainPage : ContentPage
     {
         WeatherService _weatherService;
@@ -14,9 +18,10 @@ namespace DiscoverWeatherApplication
         public MainPage()
         {
             InitializeComponent();
-            _weatherService = new WeatherService(); // Create an instance of WeatherService
+            _weatherService = new WeatherService(); 
         }
 
+        //Loads/opens view item when application initially loads.
         protected async override void OnAppearing()
         {
             base.OnAppearing();
@@ -50,10 +55,14 @@ namespace DiscoverWeatherApplication
             else
             {
                 // Handle the case where weather data is not available or the request fails
+                BindingContext = null;
+                Debug.WriteLine(BindingContext, "weatherForecastData data empty");
             }
 
         }
 
+        //List item event listener for list item selected.
+        //WeatherForecastSelectedDayDetails is opened when each item is selected.
         private async void OnListItemClicked(object sender, EventArgs e)
         {
             if (e is SelectedItemChangedEventArgs tappedEventArgs)
@@ -62,13 +71,14 @@ namespace DiscoverWeatherApplication
 
                 if (selectedItem != null)
                 {
-                    var bottomSheet = new WeatherBottomSheet();
-                    bottomSheet.UpdateForecast(selectedItem);
-                    await Navigation.PushAsync(bottomSheet);
+                    var weatherForecastSelected = new WeatherForecastSelectedDayDetails();
+                    weatherForecastSelected.UpdateForecast(selectedItem);
+                    await Navigation.PushAsync(weatherForecastSelected);
                 }
                 else
                 {
                     // Handle the case where selectedItem is null (no item selected)
+                    Debug.WriteLine("Failed to select item from List");
                 }
             }
         }

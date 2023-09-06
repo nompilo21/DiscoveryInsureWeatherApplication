@@ -9,6 +9,8 @@ namespace Discovery.Weather.BusinessLogic
 {
     public class DateToStringConverter : IValueConverter
     {
+
+        //description: Takes in date as unix timestamp and returns day in words.
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is long UnixTimestamp)

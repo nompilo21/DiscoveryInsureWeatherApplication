@@ -1,27 +1,27 @@
 using Discovery.Weather.DataTransferObjects;
+using System.Diagnostics;
 
 namespace DiscoverWeatherApplication;
 
-public partial class WeatherBottomSheet : ContentPage
+public partial class WeatherForecastSelectedDayDetails : ContentPage
 {
-	public WeatherBottomSheet()
+	public WeatherForecastSelectedDayDetails()
 	{
 		InitializeComponent();
 	}
 
-
+    //Page that opens when list item(day of week) is selected from list.
     public void UpdateForecast(WeatherList weatherForecastData)
     {
 
-        // Update your UI elements with the forecast data
-        // For example, set the Text of labels or populate a ListView
         if (weatherForecastData != null)
         {
             BindingContext = weatherForecastData;
         }
         else
         {
-            // Handle the case where weather data is not available or the request fails
+            BindingContext = null;
+            Debug.WriteLine(BindingContext, "weatherForecastData data empty");
         }
     }
 }

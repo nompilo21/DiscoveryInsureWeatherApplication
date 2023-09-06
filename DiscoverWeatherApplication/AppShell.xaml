@@ -5,10 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DiscoverWeatherApplication"
     Shell.FlyoutBehavior="Disabled"
-    Title="DiscoverWeatherApplication">
+    Title="Discovery Weather Application">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
