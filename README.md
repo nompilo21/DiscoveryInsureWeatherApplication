@@ -19,21 +19,28 @@ far as possible
 - .net MAUI (framework/architecture(MVVM))
 - Xamarin
 
+#All unit tests ran successfully before application deployment.
+
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/c742d7d2-d142-473e-b161-fc7c8c3840cb)
+
 
 #This application can be displayed as a desktop/android/ios app dependent on testing environment. Below are screenshots of the general look of app and what gets displayed when list item is selected.
 
 
 1. Windows Machine - responsive layout
+   
 ![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/4a4894ee-c0e9-4702-92f7-415afb745499)
 
 
 
 #selected item: Friday
+
 ![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/8416127c-a59b-45b0-8681-3832e656feaf)
 
 
 
 #selected item: Sunday
+
 ![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bdfdd32b-ff41-4a78-8b45-227ef26da737)
 
 
