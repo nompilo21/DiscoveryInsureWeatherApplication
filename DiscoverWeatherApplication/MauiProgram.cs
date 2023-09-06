@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using The49.Maui.BottomSheet;
 
 namespace DiscoverWeatherApplication
 {

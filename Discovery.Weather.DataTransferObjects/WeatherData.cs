@@ -46,5 +46,7 @@ namespace Discovery.Weather.DataTransferObjects
 
         [JsonProperty("sys")]
         public Sys Sys { get; set; }
+
+        public WeatherForecastData forecastData { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Discovery.Weather.DataTransferObjects {
         public Coord Coord { get; set; }
 
         [JsonProperty("list")]
-        public List List { get; set; }
+        public List<WeatherList> List { get; set; }
 
         [JsonProperty("main")]
         public Main Main { get; set; }

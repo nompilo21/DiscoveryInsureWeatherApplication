@@ -1,4 +1,9 @@
-﻿using Discovery.Weather.DataTransferObjects;
+﻿using Discovery.Weather.BusinessLogic;
+using Discovery.Weather.DataTransferObjects;
+using Microsoft.Maui.Controls;
+using System.Globalization;
+using System.Runtime.Intrinsics.X86;
+using System.Threading.Channels;
 
 namespace DiscoverWeatherApplication
 {
@@ -15,68 +20,65 @@ namespace DiscoverWeatherApplication
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            LongToDateTimeConverter longToDateTimeConverter = new LongToDateTimeConverter();
             string weatherRequestUrl = GenerateForecastRequestURL(WeatherDataApiConstants.OpenWeatherMapEndpoint);
             string weatherForecastRequestUrl = GenerateForecastRequestURL(WeatherDataApiConstants.WeatherForecastEndpoint);
 
             WeatherData weatherData = await _weatherService.GetWeatherData(weatherRequestUrl);
-            WeatherForecastData weatherForecastData = await _weatherService.GetWeatherForecastData(weatherForecastRequestUrl);
+            weatherData.forecastData = await _weatherService.GetWeatherForecastData(weatherForecastRequestUrl);
+            weatherData.forecastData.List = weatherData.forecastData.List
+              .GroupBy(data =>
+              {
+                  if (DateTime.TryParseExact(data.DtTxt, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateTime))
+                  {
+                      return dateTime.Date;
+                  }
+                  else
+                  {
+                      // Handle invalid datetime strings
+                      return DateTime.MinValue.Date;
+                  }
+              })
+              .Select(group => group.First())
+              .Take(7)
+              .ToList();
 
-            if (weatherData != null && weatherForecastData != null)
+            if (weatherData != null)
             {
                 BindingContext = weatherData;
-                BindingContext = weatherForecastData;
-
             }
             else
             {
                 // Handle the case where weather data is not available or the request fails
-                // You can display an error message or take appropriate action here.
-                Console.WriteLine("Error");
             }
 
         }
 
-        async void OnGetWeatherButtonClicked(object sender, EventArgs e)
+        private async void OnListItemClicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
+            if (e is SelectedItemChangedEventArgs tappedEventArgs)
             {
-                string weatherRequestUrl = GenerateRequestURL(WeatherDataApiConstants.OpenWeatherMapEndpoint);
-                string weatherForecastRequestUrl = GenerateRequestURL(WeatherDataApiConstants.WeatherForecastEndpoint);
+                WeatherList selectedItem = (WeatherList)tappedEventArgs.SelectedItem; // Use Item to get the selected item
 
-
-                WeatherData weatherData = await _weatherService.GetWeatherData(weatherRequestUrl);
-                WeatherForecastData weatherForecastData = await _weatherService.GetWeatherForecastData(weatherForecastRequestUrl);
-
-                if (weatherData != null && weatherForecastData != null)
+                if (selectedItem != null)
                 {
-                    BindingContext = weatherData;
-                    BindingContext = weatherForecastData;
-
+                    var bottomSheet = new WeatherBottomSheet();
+                    bottomSheet.UpdateForecast(selectedItem);
+                    await Navigation.PushAsync(bottomSheet);
                 }
                 else
                 {
-                    // Handle the case where weather data is not available or the request fails
-                    // You can display an error message or take appropriate action here.
-                    Console.WriteLine("Error");
+                    // Handle the case where selectedItem is null (no item selected)
                 }
             }
         }
+
 
         string GenerateForecastRequestURL(string endPoint)
         {
             string name = "Durban";
             string requestUri = endPoint;
             requestUri += $"?q={name}";
-            requestUri += "&units=imperial";
-            requestUri += $"&APPID={WeatherDataApiConstants.WeatherMapAPIKey}";
-            return requestUri;
-        } 
-
-
-        string GenerateRequestURL(string endPoint)
-        {
-            string requestUri = endPoint;
-            requestUri += $"?q={_cityEntry.Text}";
             requestUri += "&units=imperial";
             requestUri += $"&APPID={WeatherDataApiConstants.WeatherMapAPIKey}";
             return requestUri;

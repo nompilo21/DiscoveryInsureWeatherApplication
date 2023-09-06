@@ -19,7 +19,7 @@ namespace Discovery.Weather.DataTransferObjects
         public int Cnt { get; set; }
 
         [JsonProperty("list")]
-        public List<List> List { get; set; }
+        public List<WeatherList> List { get; set; }
 
         [JsonProperty("city")]
         public City City { get; set; }

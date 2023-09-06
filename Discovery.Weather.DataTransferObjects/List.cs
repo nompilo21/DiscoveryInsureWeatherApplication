@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Discovery.Weather.DataTransferObjects
 {
-    public class List
+    public class WeatherList
     {
         [JsonProperty("dt")]
-        public int Dt { get; set; }
+        public long Dt { get; set; }
 
         [JsonProperty("main")]
         public Main Main { get; set; }
@@ -28,7 +28,7 @@ namespace Discovery.Weather.DataTransferObjects
         public int Visibility { get; set; }
 
         [JsonProperty("pop")]
-        public int Pop { get; set; }
+        public double Pop { get; set; }
 
         [JsonProperty("sys")]
         public Sys Sys { get; set; }
