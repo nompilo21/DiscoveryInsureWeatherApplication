@@ -26,8 +26,12 @@ far as possible
 1. Windows Machine - responsive layout
 ![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/4a4894ee-c0e9-4702-92f7-415afb745499)
 
+
+
 #selected item: Friday
 ![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/8416127c-a59b-45b0-8681-3832e656feaf)
+
+
 
 #selected item: Sunday
 ![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bdfdd32b-ff41-4a78-8b45-227ef26da737)
