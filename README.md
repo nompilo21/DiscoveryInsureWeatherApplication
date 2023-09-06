@@ -21,26 +21,28 @@ far as possible
 
 #All unit tests ran successfully before application deployment.
 
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/c742d7d2-d142-473e-b161-fc7c8c3840cb)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/af60e7dc-1d8d-41cf-9587-f11b50e57bdc)
 
 
 #This application can be displayed as a desktop/android/ios app dependent on testing environment. Below are screenshots of the general look of app and what gets displayed when list item is selected.
 
 
-1. Windows Machine - responsive layout
+1. Windows Machine
    
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/4a4894ee-c0e9-4702-92f7-415afb745499)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/9286c121-afa1-4c05-8430-9402e4a0ce92)
+
 
 
 
 #selected item: Friday
 
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/8416127c-a59b-45b0-8681-3832e656feaf)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bdec5666-baec-43a4-b4a7-742687bf0ebf)
 
 
 
 #selected item: Sunday
 
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bdfdd32b-ff41-4a78-8b45-227ef26da737)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bdc8e9ed-f2b3-44a9-b94d-328f8c98f22b)
+
 
 
