@@ -29,20 +29,23 @@ far as possible
 
 1. Windows Machine
    
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/9286c121-afa1-4c05-8430-9402e4a0ce92)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/3e639863-33b5-4dac-a359-f83ff49df164)
 
 
-
-
-#selected item: Friday
-
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bdec5666-baec-43a4-b4a7-742687bf0ebf)
 
 
 
 #selected item: Sunday
 
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bdc8e9ed-f2b3-44a9-b94d-328f8c98f22b)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/49ed4352-54aa-47e8-b83b-d2964cb419ef)
+
+
+
+
+#selected item: Tuesday
+
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bad46108-fcba-46d3-a6ef-344a6d453abc)
+
 
 
 
