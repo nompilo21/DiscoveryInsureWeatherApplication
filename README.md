@@ -37,14 +37,16 @@ far as possible
 
 #selected item: Sunday
 
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/49ed4352-54aa-47e8-b83b-d2964cb419ef)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/e06edb7f-f4fc-49ab-9daa-03ca29d3340a)
+
 
 
 
 
 #selected item: Tuesday
 
-![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/bad46108-fcba-46d3-a6ef-344a6d453abc)
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/08f2e640-1ea5-471b-85fe-d6da2f415f9d)
+
 
 
 
