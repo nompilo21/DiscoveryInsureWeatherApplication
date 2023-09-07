@@ -62,7 +62,8 @@ far as possible
 
 #selected item: Tuesday
 
-![Uploading image.png…]()
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/27948905-782c-466c-8996-fc86bd46caf0)
+
 
 
 
