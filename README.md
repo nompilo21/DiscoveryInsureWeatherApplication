@@ -50,4 +50,22 @@ far as possible
 
 
 
+2. Android Emulator
+
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/9598b4eb-7058-4612-94fc-3a9ad0c781f8)
+
+
+#selected item: Sunday
+
+![image](https://github.com/nompilo21/DiscoveryInsureWeatherApplication/assets/42342489/097c7749-b6e8-457b-83a2-74766a11c877)
+
+
+#selected item: Tuesday
+
+![Uploading image.png…]()
+
+
+
+
+
 
